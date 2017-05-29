@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Struts2Diagram version="2.0">
+  <package name="default" location="338,99" size="240,306">
+    <action name="sendLoginAction" location="81,51" size="150,104">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="chatlist.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="error.jsp" />
+      </result>
+      <result name="input" />
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="Login.jsp" />
+      </result>
+    </action>
+    <action name="sendSignUp" location="14,214" size="150,83">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="chatlist.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="error.jsp" />
+      </result>
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="SignUp.jsp" />
+      </result>
+    </action>
+  </package>
+  <webResource name="chatlist.jsp" path="/chatlist.jsp" location="75,51" size="150,55" />
+  <webResource name="error.jsp" path="/error.jsp" location="50,200" size="150,55" />
+  <webResource name="Login.jsp" path="/Login.jsp" location="279,19" size="150,55" />
+  <webResource name="SignUp.jsp" path="/SignUp.jsp" location="50,350" size="150,55" />
+</Struts2Diagram>
+

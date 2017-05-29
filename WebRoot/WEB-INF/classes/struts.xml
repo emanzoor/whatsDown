@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.devMode" value="true"></constant>
+	<package name="default" extends="struts-default">
+	
+		<action name="sendLoginAction" class="org.project.action.LoginAction"
+			method="execute">
+			 
+			<result name="success" type="redirect">/FriendList.action</result>
+			<result name="error">/Login.jsp</result>
+			<result name="input" type="dispatcher">/Login.action</result>
+
+		</action>
+		<action name="sendSignUp" class="org.project.action.SignUp"
+			method="execute">			
+			<result name="success" type = "redirect">//FriendList.action</result>
+			<result name="error">/error.jsp</result>
+			<result name="input" type="dispatcher">/SignUp.action</result>
+		</action>
+		
+			<action name="FriendList" class="org.project.action.FriendList"
+			method="execute">
+			<result name="success">/FriendList.jsp</result>
+			<result name="error">/error.jsp</result>
+			
+		</action>
+			<action name="Chatbox" class="org.project.action.ChatBox"
+			method="execute">
+			<result name="success">/chatbox.jsp</result>
+			<result name="error">/error.jsp</result>
+			
+		</action>
+		
+			<action name="sendMessage" class="org.project.action.ChatBox"
+			method="sendText">
+			<result name="success">/chatbox.jsp</result>
+			<result name="error">/error.jsp</result>
+			
+		</action>
+			<action name="logoutAction" class="org.project.action.Logout"
+			method="execute">
+			<result name="success">/Login.jsp</result>
+			<result name="error">/error.jsp</result>
+			
+		</action>
+		
+	</package>
+</struts>    
