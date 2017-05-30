@@ -12,10 +12,12 @@ import java.sql.SQLException;
 import java.sql.SQLIntegrityConstraintViolationException;
 
 import java.util.ArrayList;
+
+import org.project.action.CONSTANTS;
 import org.project.bean.User;
 
-public class userDao {
-	private static String dbURL = "jdbc:derby://localhost:1527/myeclipse;create=true;user=erum;password=erum";
+public class UserDao {
+	
 
 	
 	private static Connection conn ;
@@ -25,11 +27,10 @@ public class userDao {
 		Connection con = null;
 		try
 		{
-			Class.forName("org.apache.derby.jdbc.ClientDriver").newInstance();
+			Class.forName(CONSTANTS.CLASSNAME).newInstance();
 			//Get a connection
-			con = DriverManager.getConnection(dbURL); 
-			System.out.println("gareg");
-			System.out.println(con.toString()+"ASDFFHJ");
+			con = DriverManager.getConnection(CONSTANTS.dbURL); 
+		
 		}
 		catch (Exception except)
 		{
@@ -43,7 +44,7 @@ public class userDao {
 			PreparedStatement pst = con.prepareStatement("SELECT * FROM CLASSICCARS.USERS WHERE EMAIL = ? and PASSWORD = ?");  
 			pst.setString(1, u.getEmail());
 			pst.setString(2, u.getPassword());
-			System.out.println(pst.toString());
+			
 			 ResultSet results = pst.executeQuery();
 			 if (!results.next() ) {
 				   
@@ -51,7 +52,7 @@ public class userDao {
 				    return u;
 				} 
 			 else{
-		     System.out.println(results.getCursorName());
+		
 		   	    u.setUsername(results.getString("USERNAME")); 
 					u.setEmail(results.getString("EMAIL"));
 		    	 
@@ -59,7 +60,7 @@ public class userDao {
 		   
 			
 			
-					System.out.println("OK");
+				
 					validUser = true;
 				
 				results.close();
@@ -72,7 +73,7 @@ public class userDao {
 			sqlExcept.printStackTrace();
 		}
 
-		System.out.println(u.getUsername()+"  "+u.getEmail());
+	
 		return u;
 	}
 
@@ -80,9 +81,9 @@ public class userDao {
 	{
 		try
 		{
-			Class.forName("org.apache.derby.jdbc.ClientDriver").newInstance();
+			Class.forName(CONSTANTS.CLASSNAME).newInstance();
 			//Get a connection
-			conn = DriverManager.getConnection(dbURL); 
+			conn = DriverManager.getConnection(CONSTANTS.dbURL); 
 		}
 		catch (Exception except)
 		{
@@ -139,11 +140,10 @@ public class userDao {
 			Connection con = null;
 		try
 		{
-			Class.forName("org.apache.derby.jdbc.ClientDriver").newInstance();
+			Class.forName(CONSTANTS.CLASSNAME).newInstance();
 			//Get a connection
-			con = DriverManager.getConnection(dbURL); 
-			System.out.println("gareg");
-			System.out.println(con.toString()+"ASDFFHJ");
+			con = DriverManager.getConnection(CONSTANTS.dbURL); 
+			
 		}
 		catch (Exception except)
 		{
@@ -163,7 +163,7 @@ public class userDao {
 			 }
 			 int i = 0;
 			 
-			 System.out.println(results.getFetchSize()+"   "+ pst.getMaxRows());
+		
 			 while(results.next()){
 				 User tmpUser = new User();
 				 tmpUser.setUsername(results.getString("USERNAME"));
@@ -171,7 +171,7 @@ public class userDao {
 				 tmpUser.setLocationHint(results.getString("LOCATION"));
 				 if(!(tmpUser.getEmail().equals(u))){
 					 users.add(i,tmpUser);
-		           	 System.out.println(users.get(i).getUsername());
+		           
 		           	 
 				 }
 				 
@@ -198,11 +198,10 @@ public class userDao {
 		{
 			Connection con = null;
 		
-			Class.forName("org.apache.derby.jdbc.ClientDriver").newInstance();
+			Class.forName(CONSTANTS.CLASSNAME).newInstance();
 			//Get a connection
-			con = DriverManager.getConnection(dbURL); 
-			System.out.println("gareg");
-			System.out.println(con.toString()+"ASDFFHJ");
+			con = DriverManager.getConnection(CONSTANTS.dbURL); 
+		
 		
 		
 		PreparedStatement pst = con.prepareStatement("SELECT * FROM CLASSICCARS.USERS WHERE EMAIL= ?");  

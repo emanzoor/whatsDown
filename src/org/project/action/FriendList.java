@@ -10,7 +10,7 @@ import javax.servlet.http.HttpSession;
 import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.dispatcher.SessionMap;
 import org.apache.struts2.interceptor.SessionAware;
-import org.project.DAO.userDao;
+import org.project.DAO.UserDao;
 import org.project.bean.User;
 
 import com.opensymphony.xwork2.ActionSupport;
@@ -21,7 +21,7 @@ public class FriendList extends ActionSupport implements SessionAware{
 	 * 
 	 * 
 	 */
-	public userDao dao = new userDao();
+	public UserDao dao = new UserDao();
 	public ArrayList<User> userList = new ArrayList<User>();
 	
 	private SessionMap<String,Object> sessionMap;

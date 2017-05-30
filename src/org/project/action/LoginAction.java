@@ -4,7 +4,7 @@ import java.util.Map;
 
 import org.apache.struts2.dispatcher.SessionMap;
 import org.apache.struts2.interceptor.SessionAware;
-import org.project.DAO.userDao;
+import org.project.DAO.UserDao;
 import org.project.bean.User;
 
 import com.opensymphony.xwork2.ActionSupport;
@@ -18,7 +18,7 @@ public class LoginAction extends ActionSupport implements SessionAware, ModelDri
 	private static final long serialVersionUID = 1L;
 	
 	private User user = new User();
-	userDao dao = new userDao();
+	UserDao dao = new UserDao();
 	private SessionMap<String,Object> sessionMap;  
 	
 	@Override

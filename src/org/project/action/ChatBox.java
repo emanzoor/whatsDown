@@ -15,7 +15,7 @@ import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.dispatcher.SessionMap;
 import org.apache.struts2.interceptor.SessionAware;
 import org.project.DAO.MessagesDAO;
-import org.project.DAO.userDao;
+import org.project.DAO.UserDao;
 import org.project.bean.Messages;
 import org.project.bean.User;
 
@@ -24,7 +24,7 @@ import com.opensymphony.xwork2.ModelDriven;
 
 public class ChatBox extends ActionSupport implements SessionAware, ModelDriven<Messages>{
 	private User user = new User();
-	public userDao userdao= new userDao();
+	public UserDao userdao= new UserDao();
 	MessagesDAO messagedao = new MessagesDAO();
 	private SessionMap<String,Object> sessionMap;
 	public ArrayList<Messages> messageArray = new ArrayList<Messages>();

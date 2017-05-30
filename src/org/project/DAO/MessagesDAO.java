@@ -8,12 +8,12 @@ import java.sql.SQLException;
 import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.ArrayList;
 
+import org.project.action.CONSTANTS;
 import org.project.bean.Messages;
 import org.project.bean.User;
 
 public class MessagesDAO {
 
-	private static String dbURL = "jdbc:derby://localhost:1527/myeclipse;create=true;user=erum;password=erum";
 	private static Connection conn ;
 	private Messages message;
 	
@@ -24,11 +24,9 @@ public class MessagesDAO {
 			Connection con = null;
 		try
 		{
-			Class.forName("org.apache.derby.jdbc.ClientDriver").newInstance();
+			Class.forName(CONSTANTS.CLASSNAME).newInstance();
 			//Get a connection
-			con = DriverManager.getConnection(dbURL); 
-			System.out.println("gareg");
-			System.out.println(con.toString()+"ASDFFHJ");
+			con = DriverManager.getConnection(CONSTANTS.dbURL); 
 		}
 		catch (Exception except)
 		{
@@ -47,7 +45,7 @@ public class MessagesDAO {
 			 {
 				 tmpMessage.setMessage("Start Conversation now");
 				 messageArray.add(0,tmpMessage);
-				 System.out.println(tmpMessage.getMessage());
+			
 				 
 				 return messageArray;
 			 }
@@ -64,7 +62,7 @@ public class MessagesDAO {
 		         tempMessage.setReceiverName(results.getString("RECEIVER_NAME"));
 		         tempMessage.setTime(results.getString("TIME"));
 					 messageArray.add(i,tempMessage);
-					 System.out.println(messageArray.get(i).getMessage());
+				
 					 
 					 i++;
 		       	
@@ -92,11 +90,10 @@ public class MessagesDAO {
 			Connection con = null;
 			try
 			{
-			Class.forName("org.apache.derby.jdbc.ClientDriver").newInstance();
+			Class.forName(CONSTANTS.CLASSNAME).newInstance();
 			//Get a connection
-			con = DriverManager.getConnection(dbURL); 
-			System.out.println("gareg");
-			System.out.println(con.toString()+"ASDFFHJ");
+			con = DriverManager.getConnection(CONSTANTS.dbURL); 
+		
 			}
 			catch (Exception e) {
 				e.printStackTrace();

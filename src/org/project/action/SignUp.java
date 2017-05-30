@@ -6,7 +6,7 @@ import java.util.Map;
 
 import org.apache.struts2.dispatcher.SessionMap;
 import org.apache.struts2.interceptor.SessionAware;
-import org.project.DAO.userDao;
+import org.project.DAO.UserDao;
 import org.project.bean.User;
 
 import com.opensymphony.xwork2.ActionSupport;
@@ -18,7 +18,7 @@ public class SignUp extends ActionSupport implements SessionAware, ModelDriven<U
 	 */
 	private static final long serialVersionUID = -4314267639879642269L;
 	private User user = new User();
-	userDao userdao = new userDao();
+	UserDao userdao = new UserDao();
 	private SessionMap<String,Object> sessionMap;
 	
 	
